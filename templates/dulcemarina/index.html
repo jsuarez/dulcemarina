@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{% if lista_ajustes %}{{ sitio.titulo_sitio }}{% endif %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+  </head>
+  <body style="padding-top:60px">
+        <div class="container">
+          <div class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Dulce Marina</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+              </ul>
+            </div>
+          </div>
+
+		<!--SLIDER FOTOS-->
+{% if lista_sliderfotos %}
+    <ul>
+    {% for foto in lista_sliderfotos %}
+        <li>
+          <img src="../../{{ foto.imagen_slider }}">
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay fotos disponibles.</p>
+{% endif %}
+
+<!--SERVICIOS-->
+{% if lista_servicios %}
+    <ul>
+    {% for servicio in lista_servicios %}
+        <li>
+          <h2>{{ servicio.titulo_servicio }}</h2>
+          <p>{{ servicio.descripcion_servicio }}</p>
+          {{ servicio.imagen_servicio }}
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay servicios disponibles.</p>
+{% endif %}
+
+<!--PRODUCTOS-->
+{% if lista_productos %}
+    <ul>
+    {% for producto in lista_productos %}
+        <li>
+          <h2>{{ producto.titulo_producto }}</h2>
+          <p>{{ producto.descripcion_producto }}</p>
+          {{ producto.imagen_producto }}
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay productos disponibles.</p>
+{% endif %}
+
+        </div>
+        <footer>
+          <hr/>
+        </footer>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
+
