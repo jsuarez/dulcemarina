@@ -10,5 +10,5 @@ class Servicio(models.Model):
 
 class Imagen(models.Model):
     servicio = models.ForeignKey(Servicio)
-    imagen = models.ImageField(upload_to='img/servicios')
+    imagen = models.ImageField(upload_to='static/img/servicios')
 
