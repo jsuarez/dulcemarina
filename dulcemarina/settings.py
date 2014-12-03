@@ -14,6 +14,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
+CKEDITOR_UPLOAD_PATH = [os.path.join(BASE_DIR, 'static/uploads')]
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
@@ -39,10 +41,12 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'productos',
     #'settings',# background, logo, title, description, contact email
+    'debug_toolbar',
     'ajustes',
     'servicios',
     'nosotros',
     'sliderfotos',
+    #'ckeditor',
 )
 
 MIDDLEWARE_CLASSES = (

@@ -2,10 +2,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{% if lista_ajustes %}{{ sitio.titulo_sitio }}{% endif %}</title>
+    
+    <title>{{ lista_ajustes.0.titulo_sitio }}</title>
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+    <!--link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css"-->
   </head>
   <body style="padding-top:60px">
         <div class="container">
@@ -30,12 +32,20 @@
     <ul>
     {% for foto in lista_sliderfotos %}
         <li>
-          <img src="../../{{ foto.imagen_slider }}">
+          {{ foto.imagen_slider }}
+          <img src="{{STATIC_URL}}{{ foto.imagen_slider }}" alt="My image"/>
         </li>
     {% endfor %}
     </ul>
 {% else %}
     <p>No hay fotos disponibles.</p>
+{% endif %}
+
+<!--NOSOTROS-->
+{% if lista_nosotros %}
+<h2>{{ lista_nosotros.0.titulo_nosotros }}</h2>
+<p>{{ lista_nosotros.0.descripcion_nosotros }}</p>
+{{ lista_nosotros.0.imagen_nosotros }}
 {% endif %}
 
 <!--SERVICIOS-->
