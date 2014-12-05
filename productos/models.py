@@ -9,8 +9,8 @@ class Producto(models.Model):
     titulo_producto = models.CharField(max_length=100)
     #descripcion_producto = models.TextField()
     descripcion_producto = RichTextField(help_text=u"Redacta una descripcion del producto")
-    imagen_original_producto = models.ImageField(upload_to='static/img/productos')
-    imagen_producto = ImageSpecField(source='imagenPrincipal',
+    imagen_original_producto = models.ImageField(upload_to='productos')
+    imagen_producto = ImageSpecField(source='imagen_original_producto',
                                       #processors=[ResizeToFill(1351, 338)], es como la agarra el navegador!
                                       processors=[ResizeToFill(1600, 450)],
                                       format='JPEG',

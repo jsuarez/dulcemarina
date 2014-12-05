@@ -7,3 +7,9 @@ class Sitio(models.Model):
     descripcion_sitio = models.TextField(max_length=800)
     mail_sitio = models.EmailField()
     pub_date = models.TimeField(auto_now=True)
+
+    def __unicode__(self):              # __str__ en Python 3
+        return self.titulo_sitio
+
+    class Meta:
+        verbose_name_plural = 'Ajustes Generales'
