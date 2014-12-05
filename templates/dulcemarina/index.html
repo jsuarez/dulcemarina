@@ -19,7 +19,7 @@
 
           <figure class="logo">
 
-              <a href="#home"> <img src="images/logo.png" alt="Dulce Marina"></a>
+              <a href="#home"> <img src="css/images/logo.png" alt="Dulce Marina"></a>
           
           </figure>  
 
@@ -76,8 +76,7 @@
                     <ul>
                     {% for foto in lista_sliderfotos %}
                         <li>
-                          {{ foto.imagen_slider.url }}
-                          <img src="{{MEDIA_URL}}{{ foto.imagen_slider }}" alt="My image"/>
+                          <img src="{{MEDIA_URL}}{{ foto.imagen_slider }}" alt="{{ foto.nombre_de_imagen }}"/>
                         </li>
                     {% endfor %}
                     </ul>
@@ -91,7 +90,7 @@
               <!--NOSOTROS-->
               {% if lista_nosotros %}
               <h2>{{ lista_nosotros.1.titulo_nosotros }}</h2>
-              <p>{{ lista_nosotros.1.descripcion_nosotros }}</p>
+              {{ lista_nosotros.1.descripcion_nosotros }}
               {{ lista_nosotros.1.imagen_nosotros }}
               {% endif %}
             </div> 

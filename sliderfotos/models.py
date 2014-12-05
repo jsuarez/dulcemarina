@@ -10,7 +10,7 @@ class Foto(models.Model):
 	imagen_original_slider = models.ImageField(upload_to='slider')
 	imagen_slider = ImageSpecField(source='imagen_original_slider',
                                       #processors=[ResizeToFill(1351, 338)], es como la agarra el navegador!
-                                      processors=[ResizeToFill(1600, 450)],
+                                      processors=[ResizeToFill(940, 450)],
                                       format='JPEG',
                                       options={'quality': 100})
 	pub_date = models.TimeField(auto_now=True)
