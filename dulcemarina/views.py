@@ -9,8 +9,8 @@ from sliderfotos.models import Foto
 
 
 def home(request):
-    lista_servicios = Servicio.objects.order_by('-pub_date')[:10]
-    lista_productos = Producto.objects.order_by('-pub_date')[:10]
+    lista_servicios = Servicio.objects.order_by('pub_date')[:10]
+    lista_productos = Producto.objects.order_by('pub_date')[:10]
     lista_ajustes = Sitio.objects.order_by('-pub_date')[:1]
     lista_nosotros = QuienesSomos.objects.order_by('-pub_date')[:1]
     lista_sliderfotos = Foto.objects.order_by('-pub_date')[:10]

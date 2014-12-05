@@ -14,7 +14,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
-CKEDITOR_UPLOAD_PATH = [os.path.join(BASE_DIR, 'static/uploads')]
+#CKEDITOR_UPLOAD_PATH = [os.path.join(BASE_DIR, 'static/uploads')]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -27,8 +27,8 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['http://dulcemarina.pythonanywhere.com/','www.dulcemarina.com.ar','dulcemarina.com.ar','http://www.dulcemarina.com.ar','http://dulcemarina.com.ar']
+#
 
 # Application definition
 
@@ -40,13 +40,15 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'productos',
-    #'settings',# background, logo, title, description, contact email
+    'imagekit',
+    'contact_form',
+    'ckeditor',
+    'deployer',
     'debug_toolbar',
     'ajustes',
     'servicios',
     'nosotros',
     'sliderfotos',
-    #'ckeditor',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -82,7 +84,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'es-ar'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Argentina/Mendoza'
 
 USE_I18N = True
 
@@ -95,6 +97,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
+INTERNAL_IPS = ("127.0.0.1",)
+MEDIA_URL = '/media/'
+
+#STATIC_ROOT = '/Users/juan/Sites/dulcemarina/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
 EMAIL_HOST = 'localhost'
@@ -104,3 +112,41 @@ EMAIL_PORT = 25
 EMAIL_HOST_USER = 'info@dulcemarina.com.ar'
 
 EMAIL_HOST_PASSWORD = '1234'
+
+#Para la implementacion de ckeditor
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': [
+            ['Undo', 'Redo',
+             '-', 'Bold', 'Italic', 'Underline',
+             '-', 'Link', 'Unlink', 'Anchor',
+             '-', 'Styles', 'Format',
+             '-', 'TextColor', 'BGColor',
+             '-', 'SpellChecker', 'Scayt',
+             '-', 'Maximize',
+             ],
+            ['HorizontalRule',
+             '-', 'Image', 'Iframe', 'Flash', 'Table', 
+             '-', 'BulletedList', 'NumberedList',
+             '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock',
+             '-', 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord',
+             '-', 'SpecialChar',
+             '-', 'Source',
+             ]
+        ],
+        'language': 'es',
+        'scayt_sLang': 'es_ES',
+        'wsc_lang': 'es_ES',
+        'extraAllowedContent': 'iframe[src,width,height,frameborder,style]',
+        'width': '100%',
+    },
+}
+
+try:
+    from settings_local import *
+except ImportError:
+    pass

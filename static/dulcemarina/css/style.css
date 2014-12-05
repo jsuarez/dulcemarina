@@ -1,0 +1,89 @@
+/*@import url(normalize.css);*/
+
+
+body{
+    font-family: 'open_sansregular';
+
+}
+
+.wrapper{
+    max-width: 900px;
+    margin: 0 auto;
+
+
+}
+
+.header{
+    background: #ffffff;
+    width: 100%;
+    overflow: hidden;
+
+}
+.header nav ul{
+    float: right;/* esto es lo que no deja que baje el header*/
+    list-style: none;
+    background: #7C191A;
+    width: 736px;
+}
+.header nav ul li a{
+    color: #fff;
+    font-size: 22px;
+    text-decoration: none;
+
+
+}
+.header nav ul li{
+     
+     display: inline;
+}
+
+.logo img{
+    position: relative;
+    float: left;
+}
+.sidebar{
+    float: left;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('../fonts/opensans-regular-webfont.eot');
+    src: url('../fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/opensans-regular-webfont.woff2') format('woff2'),
+         url('../fonts/opensans-regular-webfont.woff') format('woff'),
+         url('../fonts/opensans-regular-webfont.ttf') format('truetype'),
+         url('../fonts/opensans-regular-webfont.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
