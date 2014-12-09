@@ -14,8 +14,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
 
-#CKEDITOR_UPLOAD_PATH = [os.path.join(BASE_DIR, 'static/uploads')]
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
@@ -114,7 +112,8 @@ EMAIL_HOST_USER = 'info@dulcemarina.com.ar'
 EMAIL_HOST_PASSWORD = '1234'
 
 #Para la implementacion de ckeditor
-CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_UPLOAD_PATH = [os.path.join(BASE_DIR, '/uploads/')]
+#CKEDITOR_UPLOAD_PATH = "uploads/"
 CKEDITOR_IMAGE_BACKEND = "pillow"
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
 

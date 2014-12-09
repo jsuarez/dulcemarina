@@ -5,6 +5,7 @@ from django.conf import settings
 import os
 from django.views import generic
 from productos import views
+#from contact_form import views
 
 urlpatterns = patterns('',
     # Examples:

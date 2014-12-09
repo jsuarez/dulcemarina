@@ -86,14 +86,7 @@
                 <img src="css/images/img1.jpg"><img src="css/images/img2.jpg"><img src="css/images/img3.jpg">
             </div>
 
-            <div>
-              <!--NOSOTROS-->
-              {% if lista_nosotros %}
-              <h2>{{ lista_nosotros.1.titulo_nosotros }}</h2>
-              {{ lista_nosotros.1.descripcion_nosotros }}
-              {{ lista_nosotros.1.imagen_nosotros }}
-              {% endif %}
-            </div> 
+            
 
 
             <section id="nosotros">
@@ -101,8 +94,9 @@
               <!--NOSOTROS-->
               {% if lista_nosotros %}
               <h2>{{ lista_nosotros.0.titulo_nosotros }}</h2>
-              <p>{{ lista_nosotros.0.descripcion_nosotros }}</p>
-              {{ lista_nosotros.0.imagen_nosotros }}
+              <p>{{ lista_nosotros.0.descripcion_nosotros|safe }}</p>
+              <img src="{{MEDIA_URL}}{{ lista_nosotros.0.imagen_nosotros }}" alt="{{ lista_nosotros.0.titulo_nosotros }}"/>
+              
               {% endif %}
 
             </section>
@@ -170,6 +164,7 @@
 
 
         </div>
+        
         <footer>
           <hr/>
         </footer>
