@@ -2,119 +2,102 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <title>{{ lista_ajustes.0.titulo_sitio }}</title>
+    <meta name="description" content="{{ lista_ajustes.0.descripcion_sitio }}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index,follow">
-    <meta name="description" content="{{ lista_ajustes.0.descripcion_sitio }}" />
     <link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.2/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <link rel="stylesheet" href="css/estilos.css" type="text/css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="css/estilos.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
-  <div class="wrapper">
 
-    <div class="header">
+    <div class="wrapper cf">
+        <header class="header">
+            <a class="logo" href="index.html"><img src="css/images/logo.png" alt="Dulce Marina"></a>
+            <nav class="menu">
+                <ul>
+                    <li><a href="productos.hlml">PRODUCTOS</a></li>
+                    <li><a href="servicios.html">SERVICIOS</a></li>
+                    <li><a href="nosotros.html">NOSOTROS</a></li>
+                </ul>
+            </nav>
+        </header>
         <div class="sidebar">
-
-          <figure class="logo">
-
-              <a href="#home"> <img src="css/images/logo.png" alt="Dulce Marina"></a>
-          
-          </figure>  
-
-          <div class="promo1">
-              <h3>Promo 1</h3>
-          </div>
-
-          <div class="promo2">
-            <h3>Promo 2</h3>
-          </div>
-
+            <a href="contacto.html">Contáctenos</a>
+            <img src="images/promos_fondo.png">
+            <div class="promos">
+                <h3>Fiesta de Fin de Año para 20 personas</h3>
+                <p><strong><em>$370</em></strong></p>
+                <p><ul>
+                    <li>2 tartas grandes a elección (Lemon Pie, Tropical o Dos frutas)</li> 
+                    <li>20 cupcakes de chocolate con crema de limón</li>
+                    <li>60 masitas secas con forma y decoración de pinitos navideños</li>
+                </ul></p>
+                <p>Incluye un voucher con un <em>10% de descuento </em> para la próxima compra</p>
+                <br>
+                <h3>Para cumpleaños infantil de 30 niños</h3>
+                <p><strong><em>$699</em></strong></p>
+                <p><ul>
+                    <li>Torta de 2.5 kg de dos rellenos especiales, cobertura y decoración a elección</li> 
+                    <li>30 alfajorcitos de maicena</li>
+                    <li>30 masitas secas</li>
+                    <li>60 salgaditos brasileños, dos tipos a elección (coxinhas, quibe, empadinhas o risoles de tomate y queso)</li> 
+                    <li>60 bombones brasileños: beijinhos (coco) y brigadeiros (chocolate)</li>
+                </ul></p>
+                <p>Incluye un voucher con un <em>10% de descuento </em> para la próxima compra</p>
+                <br>
+            </div>
         </div>
 
-        <nav>
-            <ul class="menu">
-                <li><a href="#nosotros"></a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#contacto">Contáctenos</a></li>
-            </ul>
-        </nav>            
-        
-    </div> 
-    
-    <section id="home">
-
-      <div class="fotorama">
-          <img src="http://s.fotorama.io/1.jpg">
-          <img src="http://s.fotorama.io/2.jpg">
-      </div>
-
-    </section> <!-- cierre #home -->  
-
-    <div id="marco_centro">
-      <div id="marco">
-        <div id="article">
-          <div id="cabecera"></div>
-          <nav>
-          <ul>
-            <li><a href="productos.hlml">PRODUCTOS</a></li>
-            <li><a href="servicios.html">SERVICIOS</a></li>
-            <li><a href="index.html"> <img src="css/images/logo.png" alt="Dulce Marina"></a></li>
-            <li><a href="nosotros.html">NOSOTROS</a></li>
-            <li><a href="contacto.html">CONTACTO</a></li>
-          </ul>
-          </nav>
-
-
-          <section class="productos">
-
-            <div>
+        <div class="main">
+            <section class="galeria">
+              <div class="fotorama">
                 <!--SLIDER FOTOS-->
                 {% if lista_sliderfotos %}
-                    <ul>
-                    {% for foto in lista_sliderfotos %}
-                        <li>
-                          <img src="{{MEDIA_URL}}{{ foto.imagen_slider }}" alt="{{ foto.nombre_de_imagen }}"/>
-                        </li>
-                    {% endfor %}
-                    </ul>
+                  {% for foto in lista_sliderfotos %}
+                      <img src="{{ foto.imagen_slider.url }}" alt="{{ foto.nombre_de_imagen }}"/>
+                  {% endfor %}
                 {% else %}
                     <p>No hay fotos disponibles.</p>
                 {% endif %}
-                <img src="css/images/img1.jpg"><img src="css/images/img2.jpg"><img src="css/images/img3.jpg">
-            </div>
+              </div>
+            </section>
 
-            
+            <section class="nosotros">
 
+              <div>
 
-            <section id="nosotros">
-           
-              <!--NOSOTROS-->
-              {% if lista_nosotros %}
-              <h2>{{ lista_nosotros.0.titulo_nosotros }}</h2>
-              <p>{{ lista_nosotros.0.descripcion_nosotros|safe }}</p>
-              <img src="{{ lista_nosotros.0.imagen_nosotros.url }}" alt="{{ lista_nosotros.0.titulo_nosotros }}"/>
-              
-              {% endif %}
+                <!--NOSOTROS-->
+                {% if lista_nosotros %}
+                <h2>{{ lista_nosotros.0.titulo_nosotros }}</h2>
+                <div  id="columnas">
+                  <p>{{ lista_nosotros.0.descripcion_nosotros|safe }}</p>
+                  <img src="{{ lista_nosotros.0.imagen_nosotros.url }}" alt="{{ lista_nosotros.0.titulo_nosotros }}"/>
+                </div>
+                {% endif %}
+
+              </div>
 
             </section>
 
-            <section id="productos">
+            <section class="productos">
 
-                <h2>Productos</h2>
+              <h2>Nuestras delicias</h2> <!-- Ni idea de cómo hacer el slider con los listados... -->
 
-                <div class="productos">
+              <div class="slider-productos">
+
+                <div class="slide-producto" id="colproductos">
 
                   <!--PRODUCTOS-->
                   {% if lista_productos %}
                     <ul>
                       {% for producto in lista_productos %}
                         <li>
-                          <h4>{{ producto.titulo_producto }}</h4>
-                          <img src="{{ producto.imagen_producto }}" alt="My image"/>
-                          {{ producto.imagen_producto }}
+                          <h3>{{ producto.titulo_producto }}</h3>
+                          <img src="{{ producto.imagen_producto.url }}" alt="{{ producto.titulo_producto }}"/>
                           {{ producto.descripcion_producto|safe }}
                         </li>
                       {% endfor %}
@@ -123,53 +106,80 @@
                     <p>No hay productos disponibles.</p>
                   {% endif %}
 
-
                 </div>
-                
+
+              </div>
+
             </section><!-- cierre productos -->
 
-            <section id="servicios">
+            <section class="servicios">
 
-                <h2>Servicios</h2>
+              <h2>Momentos especiales con Dulce Marina</h2>
 
-                <div class="servicios">                
-                    <li><a href="">Bodas</a></li>
-                    <li><a href="">Cumpleaños</a></li>
-                    <li><a href="">Eventos</a></li>
-                    <li><a href="">Distribución</a></li>
+              <!--SERVICIOS-->
+              {% if lista_servicios %}
+                  <ul class="servicios">
+                  {% for servicio in lista_servicios %}
+                      <li>
+                        <h2>{{ servicio.titulo_servicio }}</h2>
+                          <p>{{ servicio.descripcion_servicio|safe }}</p>
+                          <div class="fotorama">
+                            <img src="{{ servicio.imagen.url }}" alt="{{ producto.titulo_producto }}"/>
+                            {% for foto in servicio.imagen %}
+                              <img src="{{ servicio.imagen.url }}" alt="{{ servicio.titulo_servicio }}"/>
+                            {% endfor %}
+                          </div>
+                      </li>
+                  {% endfor %}
+                  </ul>
+              {% else %}
+                  <p>No hay servicios disponibles.</p>
+              {% endif %}
 
-                </div>
-                
             </section><!-- cierre servicios-->
 
-		
+            <section id="contacto">
 
+                <h2>Contáctenos</h2>
+                     <form action="" formmethod="get">
+                        <label for="user-name">Nombre y apellido:</label>
+                        <input id="user-name" name="user-name" type="text" placeholder="Ingrese su nombre y apellido" required>
+                        <br> <br>
+                        <label>E-mail:</label>
+                        <input type="email" placeholder="Ingrese un correo válido" required>
+                        <br> <br>
+                        <label>Título:</label>
+                        <input type="title" placeholder="Título" required>
+                        <label for="motivo">Motivo:</label>
+                        <select id="listamotivos" required>
+                            <option value="consulta" selected>Consulta</option>
+                            <option>Comentario</option>
+                            <option>Pedido</option>
+                        </select>
+                        <br> <br>
+                        <label>Mensaje:</label>
+                        <br>
+                        <textarea rows="8" cols="60" required></textarea>
+                        <br> <br>
+                        <input type="submit" value="Enviar">
+                        <input type="reset" value="Cancelar">
+                    </form>
 
-
-<!--SERVICIOS-->
-{% if lista_servicios %}
-    <ul>
-    {% for servicio in lista_servicios %}
-        <li>
-          <h2>{{ servicio.titulo_servicio }}</h2>
-          <p>{{ servicio.descripcion_servicio|safe }}</p>
-          {{ servicio.imagen_servicio }}
-        </li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No hay servicios disponibles.</p>
-{% endif %}
-
-
-
+            </section><!-- cierre contacto-->
         </div>
-        
-        <footer>
-          <hr/>
+
+        <footer class="footer">
+            <p>Cel 0261 156114700 </p>
+            <ul>
+                    <li><a class="button facebook" href="https://www.facebook.com/dulcemarinareposteria">Facebook</a></li>
+                    <li><a class="button twitter" href="link-a-twitter">Twitter</a></li>
+            </ul>
+             
         </footer>
-    <script src="http://code.jquery.com/jquery.js"></script>
-  </body>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> <!-- 33 KB -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.2/fotorama.js"></script>
+
+</body>
 </html>
-
-
