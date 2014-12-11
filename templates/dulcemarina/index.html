@@ -95,7 +95,7 @@
               {% if lista_nosotros %}
               <h2>{{ lista_nosotros.0.titulo_nosotros }}</h2>
               <p>{{ lista_nosotros.0.descripcion_nosotros|safe }}</p>
-              <img src="{{MEDIA_URL}}{{ lista_nosotros.0.imagen_nosotros }}" alt="{{ lista_nosotros.0.titulo_nosotros }}"/>
+              <img src="{{ lista_nosotros.0.imagen_nosotros.url }}" alt="{{ lista_nosotros.0.titulo_nosotros }}"/>
               
               {% endif %}
 
