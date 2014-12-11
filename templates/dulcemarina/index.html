@@ -115,7 +115,7 @@
                           <h4>{{ producto.titulo_producto }}</h4>
                           <img src="{{ producto.imagen_producto }}" alt="My image"/>
                           {{ producto.imagen_producto }}
-                          {{ producto.descripcion_producto }}
+                          {{ producto.descripcion_producto|safe }}
                         </li>
                       {% endfor %}
                     </ul>
@@ -152,7 +152,7 @@
     {% for servicio in lista_servicios %}
         <li>
           <h2>{{ servicio.titulo_servicio }}</h2>
-          <p>{{ servicio.descripcion_servicio }}</p>
+          <p>{{ servicio.descripcion_servicio|safe }}</p>
           {{ servicio.imagen_servicio }}
         </li>
     {% endfor %}
