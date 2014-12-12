@@ -1,3 +1,4 @@
 media/*
 dulcemarina/settings.py
 tmp/*
+*.pyc
