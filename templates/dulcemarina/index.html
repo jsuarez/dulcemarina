@@ -92,8 +92,8 @@
 
                   <!--PRODUCTOS-->
                   {% if lista_productos %}
-                    <div class="fotorama productos">
                     <ul>
+                      <div class="fotorama productos">
                       {% for producto in lista_productos %}
                         <li>
                           <div class="texto-producto"><h3>{{ producto.titulo_producto }}</h3>
@@ -101,8 +101,8 @@
                           <img src="{{ producto.imagen_producto.url }}" alt="{{ producto.titulo_producto }}"/>
                         </li>
                       {% endfor %}
-                    </ul>
                     </div>
+                    </ul>
                   {% else %}
                     <p>No hay productos disponibles.</p>
                   {% endif %}

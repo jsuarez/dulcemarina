@@ -180,12 +180,13 @@ text-align: right;
 .fotorama.productos img {
 	margin-left: 20px;
 }
-.fotorama.productos ul {
+ul .fotorama.productos {
 	padding-left: 0px;
 	margin-left: 0px;
 }
-.fotorama.productos ul li {
+ul .fotorama.productos li {
 	width: 468px;
+	margin-left: -30px;
 }
 
 /*.fotorama.productos img {
