@@ -9,7 +9,7 @@ class ImagenInline(admin.StackedInline):
 
 class ServicioAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,               {'fields': ['titulo_servicio', 'descripcion_servicio']}),
+        (None,               {'fields': ['titulo_servicio']}),#, 'descripcion_servicio'
     ]
     inlines = [ImagenInline]
     list_display = ('titulo_servicio',)

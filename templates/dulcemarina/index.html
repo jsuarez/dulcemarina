@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="index,follow">
     <link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.2/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
-    <link rel="stylesheet" href="css/style.css" />
     <link href="css/estilos.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -19,14 +18,14 @@
             <a class="logo" href="index.html"><img src="css/images/logo.png" alt="Dulce Marina"></a>
             <nav class="menu">
                 <ul>
-                    <li><a href="productos.hlml">PRODUCTOS</a></li>
-                    <li><a href="servicios.html">SERVICIOS</a></li>
-                    <li><a href="nosotros.html">NOSOTROS</a></li>
+                    <li><a href="#productos">PRODUCTOS</a></li>
+                    <li><a href="#servicios">SERVICIOS</a></li>
+                    <li><a href="#nosotros">NOSOTROS</a></li>
                 </ul>
             </nav>
         </header>
         <div class="sidebar">
-            <a href="contacto.html">Contáctenos</a>
+            <a href="#contacto"><h3>¡Contáctenos!</h3></a>
             <img src="images/promos_fondo.png">
             <div class="promos">
                 <h3>Fiesta de Fin de Año para 20 personas</h3>
@@ -72,7 +71,7 @@
 
                 <!--NOSOTROS-->
                 {% if lista_nosotros %}
-                <h2>{{ lista_nosotros.0.titulo_nosotros }}</h2>
+                <a name="nosotros"><h2>{{ lista_nosotros.0.titulo_nosotros }}</h2></a>
                 <div  id="columnas">
                   <p>{{ lista_nosotros.0.descripcion_nosotros|safe }}</p>
                   <img src="{{ lista_nosotros.0.imagen_nosotros.url }}" alt="{{ lista_nosotros.0.titulo_nosotros }}"/>
@@ -85,7 +84,7 @@
 
             <section class="productos">
 
-              <h2>Nuestras delicias</h2> <!-- Ni idea de cómo hacer el slider con los listados... -->
+              <a name="productos"><h2>Nuestras delicias</h2></a> <!-- Ni idea de cómo hacer el slider con los listados... -->
 
               <div class="slider-productos">
 
@@ -93,15 +92,17 @@
 
                   <!--PRODUCTOS-->
                   {% if lista_productos %}
+                    <div class="fotorama productos">
                     <ul>
                       {% for producto in lista_productos %}
                         <li>
-                          <h3>{{ producto.titulo_producto }}</h3>
+                          <div class="texto-producto"><h3>{{ producto.titulo_producto }}</h3>
+                          <div class="descripcion-producto">{{ producto.descripcion_producto|safe }}</div></div>
                           <img src="{{ producto.imagen_producto.url }}" alt="{{ producto.titulo_producto }}"/>
-                          {{ producto.descripcion_producto|safe }}
                         </li>
                       {% endfor %}
                     </ul>
+                    </div>
                   {% else %}
                     <p>No hay productos disponibles.</p>
                   {% endif %}
@@ -114,17 +115,17 @@
 
             <section class="servicios">
 
-              <h2>Momentos especiales con Dulce Marina</h2>
+              <a name="servicios"><h2>Momentos especiales con Dulce Marina</h2></a>
 
               <!--SERVICIOS-->
               {% if lista_servicios %}
                   <ul class="servicios">
                   {% for servicio in lista_servicios %}
                       <li>
-                        <h2>{{ servicio.titulo_servicio }}</h2>
-                          <p>{{ servicio.descripcion_servicio|safe }}</p>
+                        <a href="#{{ servicio.titulo_servicio }}">{{ servicio.titulo_servicio }}</a>
+                          <!--<p>{{ servicio.descripcion_servicio|safe }}</p>-->
                           <div class="fotorama">
-                            <img src="{{ servicio.imagen.url }}" alt="{{ producto.titulo_producto }}"/>
+                            <!--<img src="{{ servicio.imagen.url }}" alt="{{ producto.titulo_producto }}"/>-->
                             {% for foto in servicio.imagen %}
                               <img src="{{ servicio.imagen.url }}" alt="{{ servicio.titulo_servicio }}"/>
                             {% endfor %}
@@ -140,25 +141,26 @@
 
             <section id="contacto">
 
-                <h2>Contáctenos</h2>
-                     <form action="" formmethod="get">
+                <a name="contacto"><h2>Contáctenos</h2></a>
+                     <form action="mailto:pgorria@hotmail.com" method="post">
+                        <div class="filas"
                         <label for="user-name">Nombre y apellido:</label>
                         <input id="user-name" name="user-name" type="text" placeholder="Ingrese su nombre y apellido" required>
                         <br> <br>
+                        <label>Título:</label>
+                        <input type="title" placeholder="Título" required>
+                        <br><br>
                         <label>E-mail:</label>
                         <input type="email" placeholder="Ingrese un correo válido" required>
                         <br> <br>
-                        <label>Título:</label>
-                        <input type="title" placeholder="Título" required>
                         <label for="motivo">Motivo:</label>
                         <select id="listamotivos" required>
                             <option value="consulta" selected>Consulta</option>
                             <option>Comentario</option>
                             <option>Pedido</option>
                         </select>
-                        <br> <br>
+                        </div>
                         <label>Mensaje:</label>
-                        <br>
                         <textarea rows="8" cols="60" required></textarea>
                         <br> <br>
                         <input type="submit" value="Enviar">

@@ -7,12 +7,11 @@ from ckeditor.fields import RichTextField
 
 class Producto(models.Model):
     titulo_producto = models.CharField(max_length=100)
-    #descripcion_producto = models.TextField()
     descripcion_producto = RichTextField(help_text=u"Redacta una descripcion del producto")
     imagen_original_producto = models.ImageField(upload_to='productos')
     imagen_producto = ImageSpecField(source='imagen_original_producto',
                                       #processors=[ResizeToFill(1351, 338)], es como la agarra el navegador!
-                                      processors=[ResizeToFill(940, 450)],
+                                      processors=[ResizeToFill(220, 180)],
                                       format='JPEG',
                                       options={'quality': 100})
     pub_date = models.TimeField(auto_now=True)
