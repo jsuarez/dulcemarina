@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models, migrations
+import ckeditor.fields
 
 
 class Migration(migrations.Migration):
@@ -15,11 +16,12 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('titulo_producto', models.CharField(max_length=100)),
-                ('descripcion_producto', models.CharField(max_length=800)),
-                ('imagen_producto', models.ImageField(upload_to=b'')),
-                ('pub_date', models.DateTimeField(verbose_name=b'fecha publicada')),
+                ('descripcion_producto', ckeditor.fields.RichTextField(help_text='Redacta una descripcion del producto')),
+                ('imagen_original_producto', models.ImageField(upload_to=b'productos')),
+                ('pub_date', models.TimeField(auto_now=True)),
             ],
             options={
+                'verbose_name_plural': 'Productos',
             },
             bases=(models.Model,),
         ),
