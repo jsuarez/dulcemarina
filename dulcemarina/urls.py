@@ -26,10 +26,10 @@ urlpatterns = patterns('',
     url(r'^ckeditor/', include('ckeditor.urls')),
 )
 # Texto para poner al final del <title> de cada pagina.
-admin.site.site_title = u'Administracion - Dulde Marina'
+admin.site.site_title = u'Administracion - Dulce Marina'
 
 # Texto a poner en los <h1> de todas las paginas.
-admin.site.site_header = u'Administrador - Dulde Marina'
+admin.site.site_header = u'Administrador - Dulce Marina'
 
 # Texto a poner arriba de la pagina de index del admin
-admin.site.index_title = u'Panel de control - Dulde Marina'
+admin.site.index_title = u'Panel de control - Dulce Marina'
