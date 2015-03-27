@@ -1,4 +1,4 @@
 media/*
-dulcemarina/settings.py
+dulcemarina/settings_local.py
 tmp/*
 *.pyc
