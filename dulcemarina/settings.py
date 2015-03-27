@@ -94,6 +94,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
+STATICFILES_DIRS = (
+    BASE_DIR.child('dulcemarina').child('static')
+)
+
 STATIC_URL = '/static/'
 INTERNAL_IPS = ("127.0.0.1",)
 MEDIA_URL = '/media/'
